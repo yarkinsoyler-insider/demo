@@ -1,0 +1,93 @@
+/* public/css/addressbook.css */
+
+/* General Styles */
+body {
+    background-color: #f8f9fa;
+}
+
+.form-container {
+    margin: 20px 0;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container form div {
+    margin-bottom: 10px;
+}
+
+.form-container form label {
+    font-weight: bold;
+}
+
+.form-container form input {
+    padding: 8px;
+    font-size: 16px;
+}
+
+.form-container form button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.form-container form button:hover {
+    background-color: #0056b3;
+}
+
+.addressbook-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.addressbook-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.addressbook-list li div {
+    display: flex;
+    gap: 10px;
+}
+
+.edit-button {
+    background-color: #ffc107;
+    padding: 5px 10px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.edit-button:hover {
+    background-color: #e0a800;
+}
+
+button[type="submit"] {
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button[type="submit"]:hover {
+    background-color: #c82333;
+}
+
+.btn-primary {
+    background-color: blue;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}

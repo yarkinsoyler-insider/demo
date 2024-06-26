@@ -1,0 +1,36 @@
+<?php
+
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AddressBookController;
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('addressbooks', AddressBookController::class);
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/addressbooks', [AddressBookController::class, 'index'])->name('addressbooks.index');
+    Route::get('/addressbooks/create', [AddressBookController::class, 'create'])->name('addressbooks.create');
+    Route::post('/addressbooks', [AddressBookController::class, 'store'])->name('addressbooks.store');
+    Route::get('/addressbooks/{addressbook}', [AddressBookController::class, 'show'])->name('addressbooks.show');
+    Route::get('/addressbooks/{addressbook}/edit', [AddressBookController::class, 'edit'])->name('addressbooks.edit');
+    Route::put('/addressbooks/{addressbook}', [AddressBookController::class, 'update'])->name('addressbooks.update');
+    Route::delete('/addressbooks/{addressbook}', [AddressBookController::class, 'destroy'])->name('addressbooks.destroy');
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('addressbooks', AddressBookController::class);
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
